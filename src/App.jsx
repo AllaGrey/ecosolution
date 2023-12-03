@@ -1,25 +1,30 @@
-import { useState } from 'react'
-import './App.css'
+import { useFont } from './hooks/useFont';
+import { fonts } from './constants/fonts';
+import { Header } from './components/Header/Header';
+import { GlobalStyle } from './components/GlobalStyles/GlobalStyles';
+import { Container } from './App.styled';
+import { MainSection } from './components/MainSection/MainSection';
+import { AboutSection } from './components/AboutSection/AboutSection';
+import { CasesSection } from './components/CasesSectoin/CasesSection';
+import { FAQSection } from './components/FAQSection/FAQSection';
+import { ContactSection } from './components/ContactSection/ContactSection';
+import { Footer } from './components/Footer/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const fontsLoaded = useFont(fonts);
 
-  return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+  return fontsLoaded ? (
+    <Container>
+      <GlobalStyle />
+      <Header />
+      <MainSection />
+      <AboutSection />
+      <CasesSection />
+      <FAQSection />
+      <ContactSection />
+      <Footer />
+    </Container>
+  ) : <p>Loading....</p>
+  }
 
 export default App
