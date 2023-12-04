@@ -12,6 +12,7 @@ export const Button = styled.a`
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+    transition: ${theme.transition.cubic};
 
     &:hover, &:focus {
         border: 1px solid ${theme.colors.darkTextColor};

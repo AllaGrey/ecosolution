@@ -1,51 +1,84 @@
-import { useState } from "react"
-import { SLIDER_DATA } from "../../constants/SLIDER_DATA"
-import { Icon } from "../Icon/Icon"
-import { SliderItem } from "../SliderItem/SliderItem"
+import { useEffect, useState } from "react";
+import { SLIDER_DATA } from "../../constants/SLIDER_DATA";
+import { Icon } from "../Icon/Icon";
+import { SliderItem } from "../SliderItem/SliderItem";
 
-import { CasesSliderStyled, StatusBar, ControlButtons, SliderControlButton, SlideCounter, SlideContainer } from "./CasesSlider.styled"
+import {
+    CasesSliderStyled,
+    StatusBar,
+    ControlButtons,
+    SliderControlButton,
+    SlideCounter,
+    SlideContainer,
+    CurrentCount
+} from "./CasesSlider.styled";
 
-export const CasesSlider = () => {
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
-    
-    const totalSlides = String(SLIDER_DATA.length).padStart(2, '0')
-    const currentSlide = String(currentSlideIndex + 1).padStart(2, '0')
-    
-    const goToPrevSlide = () => {
-        const isFirstSlide = currentSlideIndex === 0
-        const newIndex = isFirstSlide ? SLIDER_DATA.length - 1 : currentSlideIndex - 1
-        setCurrentSlideIndex(newIndex)
+const generateInitialIndices = (itemsPerPage) => {
+    const initialIndices = [];
+    for (let i = 0; i < itemsPerPage; i++) {
+        initialIndices.push(i);
     }
+    return initialIndices;
+    };
+
+    export const CasesSlider = () => {
+    let itemsPerPage = 1;
+
+    const [currentSlideIndices, setCurrentSlideIndices] = useState(() => generateInitialIndices(itemsPerPage));
+    
+    useEffect(() => {
+        const handleResize = () => {
+        const windowWidth = window.innerWidth;
+        const newItemsPerPage = windowWidth < 768 ? 1 : 2;
+        setCurrentSlideIndices(generateInitialIndices(newItemsPerPage));
+        };
+
+        handleResize();
+
+        window.addEventListener("resize", handleResize);
+
+        () => window.removeEventListener("resize", handleResize);
+
+    },[])
+
+    const lastSlideId = SLIDER_DATA[currentSlideIndices[currentSlideIndices.length - 1]].id
+
+    const goToPrevSlide = () => {
+        const newIndices = currentSlideIndices.map((index) => (index - itemsPerPage >= 0 ? index - itemsPerPage : SLIDER_DATA.length - itemsPerPage + index));
+        setCurrentSlideIndices(newIndices);
+    };
 
     const goToNextSlide = () => {
-        const isLastSlide = currentSlideIndex === SLIDER_DATA.length - 1
-        const newIndex = isLastSlide ? 0 : currentSlideIndex + 1
-        setCurrentSlideIndex(newIndex)
-    }
+        const newIndices = currentSlideIndices.map((index) => (index + 1 < SLIDER_DATA.length ? index + 1 : 0));
+        setCurrentSlideIndices(newIndices);
+    };
 
     return (
-                <CasesSliderStyled>
-                    <StatusBar>
-                        <SlideCounter>
-                            {`${currentSlide}/${totalSlides}`}
-                        </SlideCounter>
-                        <ControlButtons>
-                            <SliderControlButton onClick={goToPrevSlide}>
-                                <Icon iconName="arrow-right" width={'36'} height={'36'} />
-                            </SliderControlButton>
-                            <SliderControlButton onClick={goToNextSlide}>
-                                <Icon iconName="arrow-right" width={'36'} height={'36'} />
-                            </SliderControlButton>
-                        </ControlButtons>
-                    </StatusBar>
-                    <SlideContainer>
-                        {SLIDER_DATA.map((item, index )=> {
-                            return (
-                                <SliderItem key={item.id} item={item} goToNextSlide={goToNextSlide} current={currentSlideIndex === index} />
-                            )
-                        })}
-                    <SliderItem item={SLIDER_DATA[currentSlideIndex]} goToNextSlide={goToNextSlide} />
-                    </SlideContainer>
-                </CasesSliderStyled>         
-    )
-}
+        <CasesSliderStyled>
+            <StatusBar>
+                    <SlideCounter>
+                        <CurrentCount>{lastSlideId}</CurrentCount>/{SLIDER_DATA.length}
+                    </SlideCounter>
+                <ControlButtons>
+                <SliderControlButton onClick={goToPrevSlide}>
+                    <Icon iconName="arrow-right" width={'36'} height={'36'} />
+                </SliderControlButton>
+                <SliderControlButton onClick={goToNextSlide}>
+                    <Icon iconName="arrow-right" width={'36'} height={'36'} />
+                </SliderControlButton>
+                </ControlButtons>
+            </StatusBar>
+            <SlideContainer>
+                {currentSlideIndices.map((index) => (
+                    <SliderItem
+                        key={SLIDER_DATA[index % SLIDER_DATA.length].id}
+                        item={SLIDER_DATA[index % SLIDER_DATA.length]}
+                        goToNextSlide={goToNextSlide} />
+                ))}
+            </SlideContainer>
+        </CasesSliderStyled>
+    );
+};
+
+
+

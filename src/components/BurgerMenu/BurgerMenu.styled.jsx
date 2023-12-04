@@ -3,23 +3,35 @@ import { theme } from "../../constants/theme";
 
 export const MenuBackdrop = styled.div`
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
     display: ${({ $isOpen }) => !$isOpen ? "none" : null};
     background-color: transparent;
     backdrop-filter: blur(2px);
-    padding: 20px;
+    padding: 10px;
 `
 
 export const MenuContainer = styled.div`
-    width: 100%;
-    height: 568px;
+    width: 320px;
+    height: 700px;
+    margin: 0 auto;
     background-color: ${theme.colors.darkBgdColor};
     padding: 24px;
     border-radius: 25px;
     color: ${theme.colors.lightColor};
     stroke: ${theme.colors.lightColor};
     z-index: 1;
+
+    @media ${theme.media.tablet} {
+        margin: 0 0 0 auto;
+    }
+
+    @media ${theme.media.desktop} {
+        width: 365px;
+        height: 835px;
+    }
 `
 
 export const MenuTopBar = styled.div`
@@ -31,6 +43,7 @@ export const CloseButton = styled.div`
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: ${theme.transition.cubic};
 
     &:hover {
         color: ${theme.colors.activeColor};

@@ -6,7 +6,7 @@ export const LearnMoreButton = () => {
     
     const handleScrollToCases = (e) => {
         e.preventDefault()
-        const casesSection = document.getElementById('cases')
+        const casesSection = document.getElementById('section-cases')
         
         if (casesSection) {
             const headerHeight = document.getElementById('header').offsetHeight
@@ -19,7 +19,7 @@ export const LearnMoreButton = () => {
     }
 
     return (
-        <Button href="#cases" onClick={(e)=>handleScrollToCases(e)}>
+        <Button href="#section-cases" onClick={(e)=>handleScrollToCases(e)}>
             <ButtonText>Learn more</ButtonText>
             <IconWrapper>
                 <Icon iconName="arrow-right" width={'16'} height={'16'} />

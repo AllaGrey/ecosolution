@@ -3,7 +3,7 @@ import { Icon } from '../Icon/Icon'
 import { IconWrapper, ItemStyled, MenuLink } from './MenuItem.styled'
 
 
-export const MenuItem = ({item, handleMenuOpen}) => {
+export const MenuItem = ({item, handleMenuOpen, isActiveSection}) => {
     
     const handleClick = (e) => {
         handleMenuOpen()
@@ -23,7 +23,12 @@ export const MenuItem = ({item, handleMenuOpen}) => {
 
     return (
         <ItemStyled>
-            <MenuLink href={`#${item.id}`} onClick={(e)=>handleClick(e)} >{item.section}</MenuLink>
+            <MenuLink
+                href={`#${item.id}`}
+                onClick={(e) => handleClick(e)}
+                $isActiveSection={isActiveSection}
+            >{item.section}
+            </MenuLink>
             <IconWrapper>
                 <Icon iconName='arrow-right' width='16' height='16' />
             </IconWrapper>
@@ -33,5 +38,6 @@ export const MenuItem = ({item, handleMenuOpen}) => {
 
 MenuItem.propTypes = {
     item: PropTypes.any,
-    handleMenuOpen: PropTypes.func
+    handleMenuOpen: PropTypes.func,
+    isActiveSection: PropTypes.bool.isRequired
 }

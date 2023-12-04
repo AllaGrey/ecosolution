@@ -9,6 +9,7 @@ export const LogoContainer = styled.div`
 `
 
 export const LogoText = styled.p`
+    transition: ${theme.transition.cubic};
     color: ${({ $isScrolling }) =>
         $isScrolling ?
         theme.colors.activeColor :

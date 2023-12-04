@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../constants/theme";
 
-export const ContactBtn = styled.a`
-    width: 130px;
+export const Button = styled.a`
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+
     height: 40px;
     border-radius: 500px;
     background-color: ${theme.colors.activeColor};
@@ -11,6 +14,8 @@ export const ContactBtn = styled.a`
     align-items: center;
     gap: 12px;
     margin: 0 auto;
+    padding: 0 16px;
+    cursor: pointer;
     transition: ${theme.transition.cubic};
 
     &:hover, &:focus {
@@ -19,8 +24,8 @@ export const ContactBtn = styled.a`
     }
 `
 
-export const Text = styled.span`
-
+export const ButtonText = styled.span`
+    
 `
 
 export const Ellipse = styled.span`
@@ -32,9 +37,9 @@ export const Ellipse = styled.span`
     background-color: ${theme.colors.darkTextColor};
     border-radius: 50%;
     rotate: 135deg;
-    transition: ${theme.transition.cubic};
 
-    ${ContactBtn}:hover &, ${ContactBtn}:focus & {
+    ${Button}:hover &, ${Button}:focus & {
         background-color: ${theme.colors.activeColor};
+        stroke: ${theme.colors.darkTextColor};
     }
 `

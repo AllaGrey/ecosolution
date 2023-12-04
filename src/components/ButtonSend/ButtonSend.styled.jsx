@@ -10,6 +10,12 @@ export const Button = styled.button`
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: ${theme.transition.cubic};
+
+    &:hover, &:focus{
+        color: ${theme.colors.activeColor};
+        background-color: ${theme.colors.darkTextColor};
+    }
 `
 export const ButtonText = styled.span`
     line-height: 1.12;

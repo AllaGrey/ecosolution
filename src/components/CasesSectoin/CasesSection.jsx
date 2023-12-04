@@ -8,7 +8,7 @@ import { CasesSectionStyled, CounterBlock, CasesBlock  } from "./CasesSection.st
 export const CasesSection = () => {
     
     return (
-        <CasesSectionStyled id="cases">
+        <CasesSectionStyled id="section-cases">
             <CounterBlock>
                 <Title>Electricity we produced for all time</Title>
                 <Incrementor/>

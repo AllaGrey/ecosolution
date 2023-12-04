@@ -1,15 +1,17 @@
 import { ContactForm } from "../ContactForm/ContactForm"
 import { ContactsList } from "../ContactsList/ContactsList"
 import { Title } from "../Title/Title"
-import { ContactSectionStyled } from "./ContactSection.styled"
+import { ContactSectionStyled, ContentWrapper } from "./ContactSection.styled"
 
 
 export const ContactSection = () => {
     return (
-        <ContactSectionStyled id="contacts">
+        <ContactSectionStyled id="section-contacts">
             <Title>Contact us</Title>
-            <ContactsList/>
-            <ContactForm/>
+            <ContentWrapper>
+                <ContactsList/>
+                <ContactForm/>
+            </ContentWrapper>
         </ContactSectionStyled>
     )
 }

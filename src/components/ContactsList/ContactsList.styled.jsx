@@ -15,7 +15,7 @@ export const ContactItem = styled.li`
 `
 
 export const ContactType = styled.p`
-
+    letter-spacing: -0.64px
 `
 
 export const ContentWrapper = styled.div`
@@ -30,6 +30,7 @@ export const ContentItem = styled.a`
     gap: 8px;
     cursor: pointer;
     stroke: ${theme.colors.darkTextColor};
+    transition: ${theme.transition.cubic};
 
     &:hover, &:focus{
         stroke: ${theme.colors.activeColor};
@@ -37,14 +38,20 @@ export const ContentItem = styled.a`
 `
 
 export const ContentText = styled.span`
+    font-size: 20px;
+    letter-spacing: -0.8px;
 
+    @media ${theme.media.desktop} {
+        font-size: 24px;
+        letter-spacing: -0.96px;
+    }
 `
 
 export const SocialNetworkWrapper = styled.div`
     display: flex;
     gap: 32px;
     stroke: ${theme.colors.darkTextColor};
-
+    transition: ${theme.transition.cubic};
 
     > * {
         cursor: pointer;
@@ -54,4 +61,7 @@ export const SocialNetworkWrapper = styled.div`
         stroke: ${theme.colors.activeColor};
     }
 
+    @media ${theme.media.desktop} {
+        gap: 8px;
+    }
 `

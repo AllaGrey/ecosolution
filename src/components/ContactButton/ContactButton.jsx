@@ -4,7 +4,7 @@ export const ContactButton = () => {
     
     const handleScrollToContacts = (e) => {
         e.preventDefault()
-        const contactsSection = document.getElementById('contacts')
+        const contactsSection = document.getElementById('section-contacts')
 
 
         if (contactsSection) {

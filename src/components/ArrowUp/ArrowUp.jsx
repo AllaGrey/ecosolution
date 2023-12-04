@@ -11,7 +11,7 @@ export const ArrowUp = () => {
     }
 
     return (
-        <ArrowUpBtn onClick={()=>handleScrollToTop()}>
+        <ArrowUpBtn onClick={()=>handleScrollToTop()} >
             <Icon iconName="arrow-right" width={'16'} height={'16'} />
         </ArrowUpBtn>
     )

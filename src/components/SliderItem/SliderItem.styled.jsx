@@ -2,9 +2,6 @@ import styled from "styled-components"
 import { theme } from "../../constants/theme"
 
 export const SliderItemStyled = styled.div`
-    width: ${({ $current }) => $current ? '100%' : 0};
-    height: ${({ $current }) => $current ? '100%' : 0};
-    display:  ${({ $current }) => $current ? 'block' : 'none'};
     overflow: hidden;
 `
 

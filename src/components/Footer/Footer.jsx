@@ -2,17 +2,17 @@ import { ArrowUp } from "../ArrowUp/ArrowUp"
 import { ContactInfo } from "../ContactInfo/ContactInfo"
 import { Logo } from "../Logo/Logo"
 import { SocialNetwork } from "../SocialNetwork/SocialNetwork"
-import { FooterStyled, FooterTopBlock, SocialNetworkWrapper, ContactInfoWrapper } from "./Footer.styled"
+import { FooterStyled, BtnWrapper, SocialNetworkWrapper, ContactInfoWrapper } from "./Footer.styled"
 
 
 export const Footer = () => {
     
     return (
         <FooterStyled>
-            <FooterTopBlock>
-                <Logo />
+            <Logo />
+            <BtnWrapper>
                 <ArrowUp/>
-            </FooterTopBlock>
+            </BtnWrapper>
             <SocialNetworkWrapper>
                 <SocialNetwork/>
             </SocialNetworkWrapper>

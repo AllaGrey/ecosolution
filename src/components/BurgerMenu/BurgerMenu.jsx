@@ -5,7 +5,7 @@ import { MENU_ITEMS } from '../../constants/MENU_ITEMS'
 import { MenuContainer, MenuTopBar, CloseButton, Text, ListContainer, MenuList, SocialNetworksWrapper, MenuBackdrop } from "./BurgerMenu.styled"
 import { SocialNetwork } from '../SocialNetwork/SocialNetwork'
 
-export const BurgerMenu = ({isOpen, handleMenuOpen}) => {
+export const BurgerMenu = ({isOpen, handleMenuOpen, activeSection}) => {
     
     return (
         <MenuBackdrop $isOpen={isOpen}>
@@ -19,7 +19,7 @@ export const BurgerMenu = ({isOpen, handleMenuOpen}) => {
                 <ListContainer>
                     <MenuList>
                         {MENU_ITEMS.map(item => {
-                            return (<MenuItem key={item.section} item={item} handleMenuOpen={handleMenuOpen} />)})}
+                            return (<MenuItem key={item.section} item={item} handleMenuOpen={handleMenuOpen} isActiveSection={activeSection === item.id} />)})}
                     </MenuList>
                     <SocialNetworksWrapper>
                         <SocialNetwork handleMenuOpen={handleMenuOpen} />
@@ -32,5 +32,6 @@ export const BurgerMenu = ({isOpen, handleMenuOpen}) => {
 
 BurgerMenu.propTypes = {
     isOpen: PropTypes.bool.isRequired,
-    handleMenuOpen: PropTypes.func.isRequired
+    handleMenuOpen: PropTypes.func.isRequired,
+    activeSection: PropTypes.string.isRequired
 }

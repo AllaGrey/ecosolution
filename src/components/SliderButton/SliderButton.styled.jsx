@@ -10,6 +10,7 @@ export const SliderBtn = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: ${theme.transition.cubic};
 
     &:hover, &:focus {
         background-color: ${theme.colors.darkTextColor};

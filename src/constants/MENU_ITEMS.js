@@ -1,22 +1,22 @@
 export const MENU_ITEMS = [
     {
         section: 'Main',
-        id: 'main',
+        id: 'section-main',
     },
     {
         section: 'About',
-        id: 'about',
+        id: 'section-about',
     },
     {
         section: 'Cases',
-        id: 'cases',
+        id: 'section-cases',
     },
     {
         section: 'FAQ',
-        id: 'questions',    
+        id: 'section-questions',    
     },
     {
         section: 'Contact Us',
-        id: 'contacts',    
+        id: 'section-contacts',    
     }
 ]

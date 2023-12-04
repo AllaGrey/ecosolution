@@ -12,6 +12,7 @@ export const ArrowUpBtn = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: ${theme.transition.cubic};
 
     &:hover, :focus{
         background-color: ${theme.colors.darkTextColor};

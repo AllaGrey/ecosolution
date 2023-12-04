@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { SliderButton } from "../SliderButton/SliderButton"
 import { SliderItemStyled, ImageWrapper, Img, InfoBlockWrapper, InfoTopBlock, InfoBottomBlock, InfoText, Region } from "./SliderItem.styled"
 
-export const SliderItem = ({item, goToNextSlide, current}) => {
+export const SliderItem = ({item, goToNextSlide}) => {
 
     return (
-        <SliderItemStyled $current={current} >
-            <ImageWrapper $current={current}>
-                <Img $current={current}
+        <SliderItemStyled  >
+            <ImageWrapper >
+                <Img 
                     srcSet={`${item.url1} 1x, ${item.url2} 2x`}
                     src={`${item.url1}`}
                     alt="Description"
