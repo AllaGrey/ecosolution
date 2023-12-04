@@ -44,13 +44,15 @@ const generateInitialIndices = (itemsPerPage) => {
     const lastSlideId = SLIDER_DATA[currentSlideIndices[currentSlideIndices.length - 1]].id
 
     const goToPrevSlide = () => {
-        const newIndices = currentSlideIndices.map((index) => (index - itemsPerPage >= 0 ? index - itemsPerPage : SLIDER_DATA.length - itemsPerPage + index));
-        setCurrentSlideIndices(newIndices);
+        setCurrentSlideIndices(prevIndices => {
+            return prevIndices.map(index => (index - itemsPerPage >= 0 ? index - itemsPerPage : SLIDER_DATA.length - itemsPerPage + index));
+        });
     };
 
     const goToNextSlide = () => {
-        const newIndices = currentSlideIndices.map((index) => (index + 1 < SLIDER_DATA.length ? index + 1 : 0));
-        setCurrentSlideIndices(newIndices);
+        setCurrentSlideIndices(prevIndices => {
+            return prevIndices.map(index => (index + 1 < SLIDER_DATA.length ? index + 1 : 0));
+        });
     };
 
     return (

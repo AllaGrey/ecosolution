@@ -1,29 +1,31 @@
 
 import PropTypes from 'prop-types'
 import { SliderButton } from "../SliderButton/SliderButton"
-import { SliderItemStyled, ImageWrapper, Img, InfoBlockWrapper, InfoTopBlock, InfoBottomBlock, InfoText, Region } from "./SliderItem.styled"
+import { SliderItemStyled, Slide, ImageWrapper, Img, InfoBlockWrapper, InfoTopBlock, InfoBottomBlock, InfoText, Region } from "./SliderItem.styled"
 
 export const SliderItem = ({item, goToNextSlide}) => {
 
     return (
         <SliderItemStyled  >
-            <ImageWrapper >
+            <Slide>
+                <ImageWrapper >
                 <Img 
                     srcSet={`${item.url1} 1x, ${item.url2} 2x`}
                     src={`${item.url1}`}
                     alt="Description"
                 />
-            </ImageWrapper>
-            <InfoBlockWrapper>
-                <InfoTopBlock>
-                    <Region>{item.region} {item.company}</Region>
-                    <SliderButton goToNextSlide={goToNextSlide}  />
-                </InfoTopBlock>
-                <InfoBottomBlock>
-                    <InfoText>{item.technologies}</InfoText>
-                    <InfoText>{item.period}</InfoText>
-                </InfoBottomBlock>                
-            </InfoBlockWrapper>
+                </ImageWrapper>
+                <InfoBlockWrapper>
+                    <InfoTopBlock>
+                        <Region>{item.region} {item.company}</Region>
+                        <SliderButton goToNextSlide={goToNextSlide}  />
+                    </InfoTopBlock>
+                    <InfoBottomBlock>
+                        <InfoText>{item.technologies}</InfoText>
+                        <InfoText>{item.period}</InfoText>
+                    </InfoBottomBlock>                
+                </InfoBlockWrapper>
+            </Slide>
         </SliderItemStyled>
     )
 }

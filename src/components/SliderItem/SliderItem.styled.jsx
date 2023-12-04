@@ -1,8 +1,21 @@
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
 import { theme } from "../../constants/theme"
+
+const slideInAnimation = keyframes`
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+`
 
 export const SliderItemStyled = styled.div`
     overflow: hidden;
+`
+
+export const Slide = styled.div`
+    animation: ${slideInAnimation} 0.5s ease-in-out;
 `
 
 export const ImageWrapper = styled.div`

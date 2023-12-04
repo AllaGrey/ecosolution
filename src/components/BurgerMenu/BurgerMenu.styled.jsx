@@ -91,12 +91,3 @@ export const SocialNetworksWrapper = styled.div`
     }
 
 `
-
-// export const IconWrapper = styled.div`
-    
-//     cursor: pointer;
-
-//     &:hover, &:focus {
-        
-//     }
-// `
