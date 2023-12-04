@@ -67,7 +67,7 @@ export const Text = styled.a`
         cursor: pointer;
 
         &:hover, &:focus {
-        color: ${theme.colors.activeColor}
+        color: ${theme.colors.activeColor};
     }
     }
 
@@ -79,7 +79,35 @@ export const Text = styled.a`
 `
 
 export const ArticleText = styled.p`
+    letter-spacing: -0.64px;
+    @media ${theme.media.tablet} {
+        text-align: justify;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: ${theme.colors.activeColor};
+        }
+        
+    }
 
+    @media ${theme.media.desktop} {
+        max-width: 390px;
+        &::before {
+            content: '';
+            position: absolute;
+            left: -160px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: ${theme.colors.activeColor};
+        }
+        
+    }
 `
 
 export const FeaturesList = styled.ul`
