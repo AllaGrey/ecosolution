@@ -86,7 +86,7 @@ Error generating stack: `+o.message+`
 `,By=_.div`
     position: absolute;
     width: 320px;
-    height: 700px;
+    height: 500px;
     top: 20px;
     right: 20px;
     background-color: ${v.colors.darkBgdColor};
@@ -103,7 +103,7 @@ Error generating stack: `+o.message+`
 
     @media ${v.media.desktop} {
         width: 365px;
-        height: 873px;
+        height: 550px;
         right: 100px;
     }
 `,Wy=_.div`
