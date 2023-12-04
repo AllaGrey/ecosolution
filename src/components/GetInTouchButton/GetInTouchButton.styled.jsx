@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../constants/theme";
 
 export const Button = styled.a`
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
         display: none;
     }
 

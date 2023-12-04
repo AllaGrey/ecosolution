@@ -2,21 +2,24 @@ import styled from "styled-components";
 import { theme } from "../../constants/theme";
 
 export const MenuBackdrop = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: ${({ $isOpen }) => !$isOpen ? "none" : null};
     background-color: transparent;
     backdrop-filter: blur(2px);
     padding: 10px;
+    z-index: 3;
 `
 
 export const MenuContainer = styled.div`
+    position: absolute;
     width: 320px;
     height: 700px;
-    margin: 0 auto;
+    top: 20px;
+    right: 20px;
     background-color: ${theme.colors.darkBgdColor};
     padding: 24px;
     border-radius: 25px;
@@ -25,12 +28,14 @@ export const MenuContainer = styled.div`
     z-index: 1;
 
     @media ${theme.media.tablet} {
-        margin: 0 0 0 auto;
+        top: 35px;
+        right: 30px;
     }
 
     @media ${theme.media.desktop} {
         width: 365px;
-        height: 835px;
+        height: 873px;
+        right: 100px;
     }
 `
 
