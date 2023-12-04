@@ -73,19 +73,22 @@ Error generating stack: `+o.message+`
 `,My=$.div`
 
 `,vh=({item:e,handleMenuOpen:t,isActiveSection:n})=>{const r=i=>{t();const o=document.getElementById(e.id);if(i.preventDefault(),o){const s=document.getElementById("header").offsetHeight,l=o.offsetTop-s;window.scrollTo({top:l,behavior:"smooth"})}};return p.jsxs(Iy,{children:[p.jsx(Ly,{href:`#${e.id}`,onClick:i=>r(i),$isActiveSection:n,children:e.section}),p.jsx(My,{children:p.jsx(Se,{iconName:"arrow-right",width:"16",height:"16"})})]})};vh.propTypes={item:Y.any,handleMenuOpen:Y.func,isActiveSection:Y.bool.isRequired};const Vy=[{section:"Main",id:"section-main"},{section:"About",id:"section-about"},{section:"Cases",id:"section-cases"},{section:"FAQ",id:"section-questions"},{section:"Contact Us",id:"section-contacts"}],Uy=$.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: ${({$isOpen:e})=>e?null:"none"};
     background-color: transparent;
     backdrop-filter: blur(2px);
     padding: 10px;
+    z-index: 3;
 `,By=$.div`
+    position: absolute;
     width: 320px;
     height: 700px;
-    margin: 0 auto;
+    top: 20px;
+    right: 20px;
     background-color: ${v.colors.darkBgdColor};
     padding: 24px;
     border-radius: 25px;
@@ -94,12 +97,14 @@ Error generating stack: `+o.message+`
     z-index: 1;
 
     @media ${v.media.tablet} {
-        margin: 0 0 0 auto;
+        top: 35px;
+        right: 30px;
     }
 
     @media ${v.media.desktop} {
         width: 365px;
-        height: 835px;
+        height: 873px;
+        right: 100px;
     }
 `,by=$.div`
     padding-bottom: 5px;
@@ -217,7 +222,7 @@ Error generating stack: `+o.message+`
 `,ev=$.span`
     color: ${v.colors.activeColor};
 `,Ta=({isScrolling:e=!1})=>p.jsxs(Su,{children:[p.jsx(Se,{iconName:"logo",width:31,height:18}),p.jsx(Xy,{$isScrolling:e,children:"ecosolution"}),p.jsxs(Jy,{children:[p.jsxs(dd,{children:[p.jsx(ev,{children:"GREEN"}),"ERGY"]}),p.jsx(dd,{children:"FOR LIFE"})]})]});Ta.propTypes={isScrolling:Y.bool};const ku=$.a`
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
         display: none;
     }
 
