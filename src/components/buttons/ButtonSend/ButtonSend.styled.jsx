@@ -1,26 +1,23 @@
 import styled from 'styled-components';
-import { theme } from '../../constants/theme';
+import { theme } from '../../../constants/theme';
 
-export const Button = styled.a`
-  width: fit-content;
+export const Button = styled.button`
   height: 40px;
+  padding: 10px 2px 10px 16px;
   border: 1px solid ${theme.colors.activeColor};
   border-radius: 500px;
-  padding: 5px 3px 5px 16px;
+  width: fit-content;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   transition: ${theme.transition.cubic};
 
   &:hover,
   &:focus {
-    border: 1px solid ${theme.colors.darkTextColor};
-    background-color: ${theme.colors.darkTextColor};
     color: ${theme.colors.activeColor};
+    background-color: ${theme.colors.darkTextColor};
   }
 `;
-
 export const ButtonText = styled.span`
   line-height: 1.12;
   letter-spacing: -0.64px;

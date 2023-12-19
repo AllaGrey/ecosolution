@@ -20,6 +20,23 @@ code {
     monospace;
 }
 
+#root{
+  @media ${theme.media.phone} {
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  @media ${theme.media.tablet} {
+    padding: 0 30px;
+  }
+  
+  @media ${theme.media.desktop} {
+    padding: 0 100px;
+    width: 1280px;
+  }
+}
+
 h1,
 h2,
 h3,

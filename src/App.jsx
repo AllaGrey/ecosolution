@@ -2,7 +2,6 @@ import { useFont } from './hooks/useFont';
 import { fonts } from './constants/fonts';
 import { Header } from './components/Header/Header';
 import { GlobalStyle } from './components/GlobalStyles/GlobalStyles';
-import { Container } from './App.styled';
 import { MainSection } from './components/MainSection/MainSection';
 import { AboutSection } from './components/AboutSection/AboutSection';
 import { CasesSection } from './components/CasesSectoin/CasesSection';
@@ -14,17 +13,21 @@ function App() {
   const fontsLoaded = useFont(fonts);
 
   return fontsLoaded ? (
-    <Container>
+    <>
       <GlobalStyle />
       <Header />
-      <MainSection />
-      <AboutSection />
-      <CasesSection />
-      <FAQSection />
-      <ContactSection />
+      <main>
+        <MainSection />
+        <AboutSection />
+        <CasesSection />
+        <FAQSection />
+        <ContactSection />
+      </main>
       <Footer />
-    </Container>
-  ) : <p>Loading....</p>
-  }
+    </>
+  ) : (
+    <p>Loading....</p>
+  );
+}
 
-export default App
+export default App;
